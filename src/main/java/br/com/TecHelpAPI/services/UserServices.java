@@ -3,18 +3,20 @@ package br.com.TecHelpAPI.services;
 import br.com.TecHelpAPI.exception.ResourceNotFoundException;
 import br.com.TecHelpAPI.model.User;
 import br.com.TecHelpAPI.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
-import java.util.logging.Logger;
+
 
 @Service
 public class UserServices {
 
     private final AtomicLong counter = new AtomicLong();
-    private Logger logger = Logger.getLogger(UserServices.class.getName());
+    private Logger logger = LoggerFactory.getLogger(UserServices.class.getName());
 
     @Autowired
     UserRepository repository;
