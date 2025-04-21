@@ -1,0 +1,62 @@
+package br.com.TecHelpAPI.services;
+
+import br.com.TecHelpAPI.exception.ResourceNotFoundException;
+import br.com.TecHelpAPI.model.User;
+import br.com.TecHelpAPI.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
+import java.util.logging.Logger;
+
+@Service
+public class UserServices {
+
+    private final AtomicLong counter = new AtomicLong();
+    private Logger logger = Logger.getLogger(UserServices.class.getName());
+
+    @Autowired
+    UserRepository repository;
+
+    public List<User> findAll(){
+        logger.info("Finding all users!");
+
+        return repository.findAll();
+    }
+
+    public User findById(Long id){
+        logger.info("Finding one user!");
+
+        return repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("No records found for this id"));
+    }
+
+    public User create(User user){
+        logger.info("Create one user!");
+
+        return repository.save(user);
+    }
+
+    public User update(User user){
+        logger.info("Updating one user!");
+        User entity = repository.findById(user.getIdUser())
+                .orElseThrow(() -> new ResourceNotFoundException("No records found for this id"));
+
+        entity.setNameUser(user.getNameUser());
+        entity.setPassword(user.getPassword());
+        entity.setDept(user.getDept());
+        entity.setEmail(user.getEmail());
+
+        return repository.save(entity);
+    }
+
+    public void delete(Long id){
+        logger.info("Delete one user!");
+
+        User entity = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("No records found for this id"));
+        repository.delete(entity);
+    }
+
+}
