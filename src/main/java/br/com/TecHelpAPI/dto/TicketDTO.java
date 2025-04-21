@@ -14,23 +14,12 @@ public class TicketDTO {
         return idTicket;
     }
 
-    public void setIdTicket(Integer idTicket) {
-        this.idTicket = idTicket;
-    }
-
     public Date getData() {
         return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
     }
 
     public String getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
 }
