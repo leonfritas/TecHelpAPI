@@ -20,31 +20,31 @@ import java.util.Objects;
 public class Ticket {
 
     @Id
-    @Column(name = "idTicket")
+    @Column
     private Long idTicket;
 
-    @Column(name = "nameTicket")
+    @Column
     private String nameTicket;
 
-    @Column(name = "date")
+    @Column
     private Date date;
 
-    @Column(name = "idUser")
+    @Column
     private Long idUser;
 
-    @Column(name = "description")
+    @Column
     private String description;
 
-    @Column(name = "idCategory")
+    @Column
     private Long idCategory;
 
-    @Column(name = "status")
+    @Column
     private String status;
 
-    @Column(name = "nameUser")
+    @Column
     private String nameUser;
 
-    @Column(name = "nameCategory")
+    @Column
     private String nameCategory;
 
     public Ticket(){ }

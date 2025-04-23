@@ -16,40 +16,40 @@ import java.util.Objects;
 public class Tech {
 
     @Id
-    @Column(name = "idUser")
-    private Long idUser;
+    @Column
+    private Long idTech;
 
-    @Column(name = "nameUser")
-    private String nameUser;
+    @Column
+    private String nameTech;
 
-    @Column(name = "password")
+    @Column
     private String password;
 
-    @Column(name = "dept")
+    @Column
     private String dept;
 
-    @Column(name = "email")
+    @Column
     private String email;
 
-    @Column(name = "nameSkill")
+    @Column
     private String nameSkill;
 
     public Tech(){ }
 
-    public Long getIdUser() {
-        return idUser;
+    public Long getIdTech() {
+        return idTech;
     }
 
-    public void setIdUser(Long idUser) {
-        this.idUser = idUser;
+    public void setIdTech(Long idTech) {
+        this.idTech = idTech;
     }
 
-    public String getNameUser() {
-        return nameUser;
+    public String getNameTech() {
+        return nameTech;
     }
 
-    public void setNameUser(String nameUser) {
-        this.nameUser = nameUser;
+    public void setNameTech(String nameTech) {
+        this.nameTech = nameTech;
     }
 
     public String getPassword() {
@@ -87,11 +87,11 @@ public class Tech {
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Tech tech)) return false;
-        return Objects.equals(getIdUser(), tech.getIdUser()) && Objects.equals(getNameUser(), tech.getNameUser()) && Objects.equals(getPassword(), tech.getPassword()) && Objects.equals(getDept(), tech.getDept()) && Objects.equals(getEmail(), tech.getEmail()) && Objects.equals(getNameSkill(), tech.getNameSkill());
+        return Objects.equals(getIdTech(), tech.getIdTech()) && Objects.equals(getNameTech(), tech.getNameTech()) && Objects.equals(getPassword(), tech.getPassword()) && Objects.equals(getDept(), tech.getDept()) && Objects.equals(getEmail(), tech.getEmail()) && Objects.equals(getNameSkill(), tech.getNameSkill());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getIdUser(), getNameUser(), getPassword(), getDept(), getEmail(), getNameSkill());
+        return Objects.hash(getIdTech(), getNameTech(), getPassword(), getDept(), getEmail(), getNameSkill());
     }
 }

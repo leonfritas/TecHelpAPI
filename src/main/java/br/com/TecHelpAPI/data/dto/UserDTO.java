@@ -1,6 +1,5 @@
 package br.com.TecHelpAPI.data.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
@@ -12,7 +11,6 @@ import java.util.Objects;
 public class UserDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
 
     private Long idUser;
     private String nameUser;

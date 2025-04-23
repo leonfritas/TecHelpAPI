@@ -19,7 +19,7 @@ public class TechController {
     }
 
     @PostMapping
-    public List<Tech> getTechData(@RequestBody TechDTO request) {
+    public List<TechDTO> getTechData(@RequestBody TechDTO request) {
         return service.getTechDataById(request.getIdTech());
     }
 }
