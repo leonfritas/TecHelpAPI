@@ -11,5 +11,5 @@ spring:
     open-in-view: false
 logging:
   level:
-    br.com.TecHelpAPI: WARN
-    root: INFO
+    br.com.TecHelpAPI: INFO
+    root: WARN

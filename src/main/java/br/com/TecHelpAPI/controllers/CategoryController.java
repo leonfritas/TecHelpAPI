@@ -1,6 +1,7 @@
 package br.com.TecHelpAPI.controllers;
 
 
+import br.com.TecHelpAPI.data.dto.CategoryDTO;
 import br.com.TecHelpAPI.model.Category;
 import br.com.TecHelpAPI.services.CategoryServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,14 +21,14 @@ public class CategoryController {
     @GetMapping(
         produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public List<Category> findAll() {
+    public List<CategoryDTO> findAll() {
         return service.findAll();
     }
 
     @GetMapping(value = "/{idCategory}",
         produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public Category findById(@PathVariable("idCategory") Long id) {
+    public CategoryDTO findById(@PathVariable("idCategory") Long id) {
         return service.findById(id);
     }
 
@@ -35,7 +36,7 @@ public class CategoryController {
         consumes = MediaType.APPLICATION_JSON_VALUE,
         produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public Category create(@RequestBody Category category) {
+    public CategoryDTO create(@RequestBody CategoryDTO category) {
         return service.create(category);
     }
 
@@ -43,7 +44,7 @@ public class CategoryController {
         consumes = MediaType.APPLICATION_JSON_VALUE,
         produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public Category update(@RequestBody Category category) {
+    public CategoryDTO update(@RequestBody CategoryDTO category) {
         return service.update(category);
     }
 

@@ -1,7 +1,7 @@
 package br.com.TecHelpAPI.controllers;
 
 
-import br.com.TecHelpAPI.model.Skill;
+import br.com.TecHelpAPI.data.dto.SkillDTO;
 import br.com.TecHelpAPI.services.SkillServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -20,14 +20,14 @@ public class SkillController {
     @GetMapping(
         produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public List<Skill> findAll() {
+    public List<SkillDTO> findAll() {
         return service.findAll();
     }
 
     @GetMapping(value = "/{idSkill}",
         produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public Skill findById(@PathVariable("idSkill") Long id) {
+    public SkillDTO findById(@PathVariable("idSkill") Long id) {
         return service.findById(id);
     }
 
@@ -35,7 +35,7 @@ public class SkillController {
         consumes = MediaType.APPLICATION_JSON_VALUE,
         produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public Skill create(@RequestBody Skill skill) {
+    public SkillDTO create(@RequestBody SkillDTO skill) {
         return service.create(skill);
     }
 
@@ -43,7 +43,7 @@ public class SkillController {
         consumes = MediaType.APPLICATION_JSON_VALUE,
         produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public Skill update(@RequestBody Skill skill) {
+    public SkillDTO update(@RequestBody SkillDTO skill) {
         return service.update(skill);
     }
 

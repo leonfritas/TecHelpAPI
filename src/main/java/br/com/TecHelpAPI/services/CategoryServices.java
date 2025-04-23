@@ -1,6 +1,9 @@
 package br.com.TecHelpAPI.services;
 
+import br.com.TecHelpAPI.data.dto.CategoryDTO;
 import br.com.TecHelpAPI.exception.ResourceNotFoundException;
+import static br.com.TecHelpAPI.mapper.ObjectMapper.parseListObjects;
+import static br.com.TecHelpAPI.mapper.ObjectMapper.parseObject;
 import br.com.TecHelpAPI.model.Category;
 import br.com.TecHelpAPI.repository.CategoryRepository;
 import org.slf4j.Logger;
@@ -21,33 +24,37 @@ public class CategoryServices {
     @Autowired
     CategoryRepository repository;
 
-    public List<Category> findAll(){
+    public List<CategoryDTO> findAll(){
         logger.info("Finding all categories!");
 
-        return repository.findAll();
+        return parseListObjects(repository.findAll(), CategoryDTO.class);
     }
 
-    public Category findById(Long id){
+    public CategoryDTO findById(Long id){
         logger.info("Finding one category!");
 
-        return repository.findById(id)
+        var entity = repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No records found for this id"));
+
+        return parseObject(entity, CategoryDTO.class);
     }
 
-    public Category create(Category category){
+    public CategoryDTO create(CategoryDTO category){
         logger.info("Create one user!");
 
-        return repository.save(category);
+        var entity = parseObject(category, Category.class);
+
+        return parseObject(repository.save(entity), CategoryDTO.class);
     }
 
-    public Category update(Category category){
+    public CategoryDTO update(CategoryDTO category){
         logger.info("Updating one category!");
         Category entity = repository.findById(category.getIdCategory())
                 .orElseThrow(() -> new ResourceNotFoundException("No records found for this id"));
 
         entity.setNameCategory(category.getNameCategory());
 
-        return repository.save(entity);
+        return parseObject(repository.save(entity), CategoryDTO.class);
     }
 
     public void delete(Long id){
