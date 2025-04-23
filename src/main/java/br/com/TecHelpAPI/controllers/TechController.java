@@ -1,6 +1,6 @@
 package br.com.TecHelpAPI.controllers;
 
-import br.com.TecHelpAPI.dto.TechDTO;
+import br.com.TecHelpAPI.data.dto.TechDTO;
 import br.com.TecHelpAPI.model.Tech;
 import br.com.TecHelpAPI.services.TechServices;
 import org.springframework.beans.factory.annotation.Autowired;

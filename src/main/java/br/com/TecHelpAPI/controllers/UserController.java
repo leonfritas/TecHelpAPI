@@ -1,7 +1,7 @@
 package br.com.TecHelpAPI.controllers;
 
 
-import br.com.TecHelpAPI.model.User;
+import br.com.TecHelpAPI.data.dto.UserDTO;
 
 import br.com.TecHelpAPI.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +21,14 @@ public class UserController {
     @GetMapping(
         produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public List<User> findAll() {
+    public List<UserDTO> findAll() {
         return service.findAll();
     }
 
     @GetMapping(value = "/{idUser}",
         produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public User findById(@PathVariable("idUser") Long id) {
+    public UserDTO findById(@PathVariable("idUser") Long id) {
         return service.findById(id);
     }
 
@@ -36,7 +36,7 @@ public class UserController {
         consumes = MediaType.APPLICATION_JSON_VALUE,
         produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public User create(@RequestBody User user) {
+    public UserDTO create(@RequestBody UserDTO user) {
         return service.create(user);
     }
 
@@ -44,7 +44,7 @@ public class UserController {
         consumes = MediaType.APPLICATION_JSON_VALUE,
         produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public User update(@RequestBody User user) {
+    public UserDTO update(@RequestBody UserDTO user) {
         return service.update(user);
     }
 

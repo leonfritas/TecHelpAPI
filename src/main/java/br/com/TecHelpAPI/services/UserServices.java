@@ -1,6 +1,9 @@
 package br.com.TecHelpAPI.services;
 
+import br.com.TecHelpAPI.data.dto.UserDTO;
 import br.com.TecHelpAPI.exception.ResourceNotFoundException;
+import static br.com.TecHelpAPI.mapper.ObjectMapper.parseListObjects;
+import static br.com.TecHelpAPI.mapper.ObjectMapper.parseObject;
 import br.com.TecHelpAPI.model.User;
 import br.com.TecHelpAPI.repository.UserRepository;
 import org.slf4j.Logger;
@@ -21,26 +24,30 @@ public class UserServices {
     @Autowired
     UserRepository repository;
 
-    public List<User> findAll(){
+    public List<UserDTO> findAll(){
         logger.info("Finding all users!");
 
-        return repository.findAll();
+        return parseListObjects(repository.findAll(), UserDTO.class);
     }
 
-    public User findById(Long id){
+    public UserDTO findById(Long id){
         logger.info("Finding one user!");
 
-        return repository.findById(id)
+        var entity = repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No records found for this id"));
+
+        return parseObject(entity, UserDTO.class);
     }
 
-    public User create(User user){
+    public UserDTO create(UserDTO user){
         logger.info("Create one user!");
 
-        return repository.save(user);
+        var entity = parseObject(user, User.class);
+
+        return parseObject(repository.save(entity), UserDTO.class);
     }
 
-    public User update(User user){
+    public UserDTO update(UserDTO user){
         logger.info("Updating one user!");
         User entity = repository.findById(user.getIdUser())
                 .orElseThrow(() -> new ResourceNotFoundException("No records found for this id"));
@@ -50,7 +57,7 @@ public class UserServices {
         entity.setDept(user.getDept());
         entity.setEmail(user.getEmail());
 
-        return repository.save(entity);
+        return  parseObject(repository.save(entity), UserDTO.class);
     }
 
     public void delete(Long id){

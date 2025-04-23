@@ -15,20 +15,20 @@ public class User implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "idUser", nullable = false)
+    @Column(nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUser;
 
-    @Column(name = "nameUser", nullable = false, length = 40)
+    @Column(nullable = false, length = 40)
     private String nameUser;
 
-    @Column(name = "password", nullable = false, length = 12)
+    @Column(nullable = false, length = 12)
     private String password;
 
-    @Column(name = "dept", nullable = false, length = 20)
+    @Column(nullable = false, length = 20)
     private String dept;
 
-    @Column(name = "email", nullable = false, length = 50)
+    @Column(nullable = false, length = 50)
     private String email;
 
     public User(){ }

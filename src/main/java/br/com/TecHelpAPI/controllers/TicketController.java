@@ -1,6 +1,6 @@
 package br.com.TecHelpAPI.controllers;
 
-import br.com.TecHelpAPI.dto.TicketDTO;
+import br.com.TecHelpAPI.data.dto.TicketDTO;
 import br.com.TecHelpAPI.model.Ticket;
 import br.com.TecHelpAPI.services.TicketServices;
 import org.springframework.beans.factory.annotation.Autowired;
