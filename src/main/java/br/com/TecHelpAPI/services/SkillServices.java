@@ -17,7 +17,6 @@ import java.util.concurrent.atomic.AtomicLong;
 @Service
 public class SkillServices {
 
-    private final AtomicLong counter = new AtomicLong();
     private final Logger logger = LoggerFactory.getLogger(SkillServices.class.getName());
 
     @Autowired

@@ -80,10 +80,6 @@ public class Tech {
         return nameSkill;
     }
 
-    public void setNameSkill(String nameSkill) {
-        this.nameSkill = nameSkill;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Tech tech)) return false;

@@ -1,9 +1,7 @@
 package br.com.TecHelpAPI.unittests.mapper.mocks;
 
 import br.com.TecHelpAPI.data.dto.TechDTO;
-import br.com.TecHelpAPI.data.dto.UserDTO;
 import br.com.TecHelpAPI.model.Tech;
-import br.com.TecHelpAPI.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +18,7 @@ public class MockTech {
     }
 
     public List<Tech> mockEntityList() {
-        List<Tech> Techs = new ArrayList<Tech>();
+        List<Tech> Techs = new ArrayList<>();
         for (int i = 0; i < 14; i++) {
             Techs.add(mockEntity(i));
         }

@@ -18,7 +18,7 @@ public class MockTicket {
     }
 
     public List<Ticket> mockEntityList() {
-        List<Ticket> Techs = new ArrayList<Ticket>();
+        List<Ticket> Techs = new ArrayList<>();
         for (int i = 0; i < 14; i++) {
             Techs.add(mockEntity(i));
         }

@@ -18,7 +18,7 @@ public class MockSkill {
     }
 
     public List<Skill> mockEntityList() {
-        List<Skill> skills = new ArrayList<Skill>();
+        List<Skill> skills = new ArrayList<>();
         for (int i = 0; i < 14; i++) {
             skills.add(mockEntity(i));
         }

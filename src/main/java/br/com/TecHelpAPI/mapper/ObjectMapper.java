@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ObjectMapper {
 
-    private static Mapper mapper = DozerBeanMapperBuilder.buildDefault();
+    private static final Mapper mapper = DozerBeanMapperBuilder.buildDefault();
 
     public static <O, D> D parseObject(O origin, Class<D> destination) {
         return mapper.map(origin, destination);
@@ -16,7 +16,7 @@ public class ObjectMapper {
 
     public static <O, D> List<D> parseListObjects(List<O> origin, Class<D> destination) {
 
-        List<D> destionationObjects = new ArrayList<D>();
+        List<D> destionationObjects = new ArrayList<>();
 
         for (Object o : origin) {
             destionationObjects.add(mapper.map(o, destination)) ;

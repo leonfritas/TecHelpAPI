@@ -69,10 +69,6 @@ public class TechDTO implements Serializable {
         return nameSkill;
     }
 
-    public void setNameSkill(String nameSkill) {
-        this.nameSkill = nameSkill;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;

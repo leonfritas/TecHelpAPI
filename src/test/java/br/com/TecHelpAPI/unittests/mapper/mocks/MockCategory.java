@@ -18,7 +18,7 @@ public class MockCategory {
     }
 
     public List<Category> mockEntityList() {
-        List<Category> categories = new ArrayList<Category>();
+        List<Category> categories = new ArrayList<>();
         for (int i = 0; i < 14; i++) {
             categories.add(mockEntity(i));
         }

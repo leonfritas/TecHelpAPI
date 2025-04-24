@@ -18,7 +18,7 @@ public class MockUser {
     }
 
     public List<User> mockEntityList() {
-        List<User> users = new ArrayList<User>();
+        List<User> users = new ArrayList<>();
         for (int i = 0; i < 14; i++) {
             users.add(mockEntity(i));
         }
