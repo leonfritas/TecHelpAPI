@@ -23,6 +23,5 @@ public class ObjectMapper {
         }
 
         return destionationObjects;
-
     }
 }

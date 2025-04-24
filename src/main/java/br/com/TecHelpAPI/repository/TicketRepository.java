@@ -14,8 +14,8 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
 
     @Procedure(name = "Ticket.spTicketSelect")
     List<Ticket> executeTicketSelectSP( @Param("idTicket") Integer idTicket,
-                                        @Param("date") Date date,
+                                        @Param("dateTicket") Date dateTicket,
                                         @Param("status") String status);
 
-    Date date(java.sql.Date date);
+//    Date date(java.sql.Date date);
 }

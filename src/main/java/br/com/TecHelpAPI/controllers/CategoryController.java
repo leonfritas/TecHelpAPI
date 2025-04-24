@@ -1,8 +1,6 @@
 package br.com.TecHelpAPI.controllers;
 
-
 import br.com.TecHelpAPI.data.dto.CategoryDTO;
-import br.com.TecHelpAPI.model.Category;
 import br.com.TecHelpAPI.services.CategoryServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -53,6 +51,4 @@ public class CategoryController {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
-
-
 }

@@ -1,7 +1,6 @@
 package br.com.TecHelpAPI.controllers;
 
 import br.com.TecHelpAPI.data.dto.TicketDTO;
-import br.com.TecHelpAPI.model.Ticket;
 import br.com.TecHelpAPI.services.TicketServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,7 +22,7 @@ public class TicketController {
     }
 
     @PostMapping
-    public List<Ticket> getTicketData(@RequestBody TicketDTO request) {
-        return service.getTicketDataById(request.getIdTicket(), request.getData(), request.getStatus());
+    public List<TicketDTO> getTicketData(@RequestBody TicketDTO request) {
+        return service.getTicketData(request.getIdTicket(), request.getDateTicket(), request.getStatus());
     }
 }

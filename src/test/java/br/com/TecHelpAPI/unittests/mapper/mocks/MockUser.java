@@ -18,19 +18,19 @@ public class MockUser {
     }
 
     public List<User> mockEntityList() {
-        List<User> persons = new ArrayList<User>();
+        List<User> users = new ArrayList<User>();
         for (int i = 0; i < 14; i++) {
-            persons.add(mockEntity(i));
+            users.add(mockEntity(i));
         }
-        return persons;
+        return users;
     }
 
     public List<UserDTO> mockDTOList() {
-        List<UserDTO> persons = new ArrayList<>();
+        List<UserDTO> users = new ArrayList<>();
         for (int i = 0; i < 14; i++) {
-            persons.add(mockDTO(i));
+            users.add(mockDTO(i));
         }
-        return persons;
+        return users;
     }
 
     public User mockEntity(Integer number) {

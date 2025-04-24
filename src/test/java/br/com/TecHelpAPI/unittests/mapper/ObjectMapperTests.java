@@ -11,7 +11,6 @@ import br.com.TecHelpAPI.unittests.mapper.mocks.MockUser;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
 public class ObjectMapperTests {
     MockUser inputObject;
 
@@ -33,7 +32,7 @@ public class ObjectMapperTests {
     @Test
     public void parseEntityListToDTOListTest() {
         List<UserDTO> outputList = parseListObjects(inputObject.mockEntityList(), UserDTO.class);
-        UserDTO outputZero = outputList.get(0);
+        UserDTO outputZero = outputList.getFirst();
 
         assertEquals(Long.valueOf(0L), outputZero.getIdUser());
         assertEquals("User Name Test0", outputZero.getNameUser());
@@ -71,7 +70,7 @@ public class ObjectMapperTests {
     @Test
     public void parserDTOListToEntityListTest() {
         List<User> outputList = parseListObjects(inputObject.mockDTOList(), User.class);
-        User outputZero = outputList.get(0);
+        User outputZero = outputList.getFirst();
 
         assertEquals(Long.valueOf(0L), outputZero.getIdUser());
         assertEquals("User Name Test0", outputZero.getNameUser());

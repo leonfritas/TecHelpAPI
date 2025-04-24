@@ -1,11 +1,9 @@
 package br.com.TecHelpAPI.services;
 
-
 import br.com.TecHelpAPI.data.dto.TechDTO;
 import br.com.TecHelpAPI.model.Tech;
 import br.com.TecHelpAPI.repository.TechRepository;
 import static br.com.TecHelpAPI.mapper.ObjectMapper.parseListObjects;
-import static br.com.TecHelpAPI.mapper.ObjectMapper.parseObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-
 
 @Service
 public class TechServices {

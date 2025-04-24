@@ -1,7 +1,9 @@
 package br.com.TecHelpAPI.services;
 
+import br.com.TecHelpAPI.data.dto.TicketDTO;
 import br.com.TecHelpAPI.model.Ticket;
 import br.com.TecHelpAPI.repository.TicketRepository;
+import static br.com.TecHelpAPI.mapper.ObjectMapper.parseListObjects;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,18 +26,18 @@ public class TicketServices {
     }
 
     @Transactional(readOnly = true)
-    public List<Ticket> getTicketDataById(Integer idTicket, Date date, String status) {
+    public List<TicketDTO> getTicketData(Integer idTicket, Date dateTicket, String status) {
 
-        logger.info("Iniciando a consulta de tickets - idTicket: {}, date: {}, status: {}", idTicket, date, status);
+        logger.info("Iniciando a consulta de tickets - idTicket: {}, dateTicket: {}, status: {}", idTicket, dateTicket, status);
 
-        List<Ticket> tickets = repository.executeTicketSelectSP(idTicket, date, status);
+        List<Ticket> tickets = repository.executeTicketSelectSP(idTicket, dateTicket, status);
 
         if (tickets.isEmpty()) {
-            logger.warn("Nenhum ticket encontrado para os parâmetros fornecidos - idTicket: {}, date: {}, status: {}", idTicket, date, status);
+            logger.warn("Nenhum ticket encontrado para os parâmetros fornecidos - idTicket: {}, dateTicket: {}, status: {}", idTicket, dateTicket, status);
         } else {
             logger.info("Consulta de tickets realizada com sucesso. Total de tickets encontrados: {}", tickets.size());
         }
 
-        return tickets;
+        return parseListObjects(tickets, TicketDTO.class);
     }
 }

@@ -2,14 +2,15 @@ package br.com.TecHelpAPI.data.dto;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
 @JsonPropertyOrder({"idCategory", "nameCategory"})
 public class CategoryDTO implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
-
 
     private Long idCategory;
     private String nameCategory;

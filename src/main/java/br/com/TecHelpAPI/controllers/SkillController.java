@@ -1,6 +1,5 @@
 package br.com.TecHelpAPI.controllers;
 
-
 import br.com.TecHelpAPI.data.dto.SkillDTO;
 import br.com.TecHelpAPI.services.SkillServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +51,4 @@ public class SkillController {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
-
-
 }

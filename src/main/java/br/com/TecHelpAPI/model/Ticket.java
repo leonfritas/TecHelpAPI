@@ -1,9 +1,9 @@
 package br.com.TecHelpAPI.model;
 
 import jakarta.persistence.*;
+
 import java.sql.Date;
 import java.util.Objects;
-
 
 @Entity
 @NamedStoredProcedureQuery(
@@ -11,7 +11,7 @@ import java.util.Objects;
         procedureName = "sp_Ticket_Select",
         parameters = {
                 @StoredProcedureParameter(name = "idTicket", mode = ParameterMode.IN, type = Integer.class),
-                @StoredProcedureParameter(name = "date", mode = ParameterMode.IN, type = Date.class),
+                @StoredProcedureParameter(name = "dateTicket", mode = ParameterMode.IN, type = Date.class),
                 @StoredProcedureParameter(name = "status", mode = ParameterMode.IN, type = String.class),
 
         },
@@ -21,22 +21,22 @@ public class Ticket {
 
     @Id
     @Column
-    private Long idTicket;
+    private Integer idTicket;
 
     @Column
     private String nameTicket;
 
     @Column
-    private Date date;
+    private Date dateTicket;
 
     @Column
-    private Long idUser;
+    private Integer idUser;
 
     @Column
     private String description;
 
     @Column
-    private Long idCategory;
+    private Integer idCategory;
 
     @Column
     private String status;
@@ -49,11 +49,11 @@ public class Ticket {
 
     public Ticket(){ }
 
-    public Long getIdTicket() {
+    public Integer getIdTicket() {
         return idTicket;
     }
 
-    public void setIdTicket(Long idTicket) {
+    public void setIdTicket(Integer idTicket) {
         this.idTicket = idTicket;
     }
 
@@ -65,19 +65,19 @@ public class Ticket {
         this.nameTicket = nameTicket;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getDateTicket() {
+        return dateTicket;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDateTicket(Date dateTicket) {
+        this.dateTicket = dateTicket;
     }
 
-    public Long getIdUser() {
+    public Integer getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(Long idUser) {
+    public void setIdUser(Integer idUser) {
         this.idUser = idUser;
     }
 
@@ -89,11 +89,11 @@ public class Ticket {
         this.description = description;
     }
 
-    public Long getIdCategory() {
+    public Integer getIdCategory() {
         return idCategory;
     }
 
-    public void setIdCategory(Long idCategory) {
+    public void setIdCategory(Integer idCategory) {
         this.idCategory = idCategory;
     }
 
@@ -123,12 +123,13 @@ public class Ticket {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Ticket ticket)) return false;
-        return Objects.equals(getIdTicket(), ticket.getIdTicket()) && Objects.equals(getNameTicket(), ticket.getNameTicket()) && Objects.equals(getDate(), ticket.getDate()) && Objects.equals(getIdUser(), ticket.getIdUser()) && Objects.equals(getDescription(), ticket.getDescription()) && Objects.equals(getIdCategory(), ticket.getIdCategory()) && Objects.equals(getStatus(), ticket.getStatus()) && Objects.equals(getNameUser(), ticket.getNameUser()) && Objects.equals(getNameCategory(), ticket.getNameCategory());
+        if (o == null || getClass() != o.getClass()) return false;
+        Ticket ticket = (Ticket) o;
+        return Objects.equals(getIdTicket(), ticket.getIdTicket()) && Objects.equals(getNameTicket(), ticket.getNameTicket()) && Objects.equals(getDateTicket(), ticket.getDateTicket()) && Objects.equals(getIdUser(), ticket.getIdUser()) && Objects.equals(getDescription(), ticket.getDescription()) && Objects.equals(getIdCategory(), ticket.getIdCategory()) && Objects.equals(getStatus(), ticket.getStatus()) && Objects.equals(getNameUser(), ticket.getNameUser()) && Objects.equals(getNameCategory(), ticket.getNameCategory());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getIdTicket(), getNameTicket(), getDate(), getIdUser(), getDescription(), getIdCategory(), getStatus(), getNameUser(), getNameCategory());
+        return Objects.hash(getIdTicket(), getNameTicket(), getDateTicket(), getIdUser(), getDescription(), getIdCategory(), getStatus(), getNameUser(), getNameCategory());
     }
 }

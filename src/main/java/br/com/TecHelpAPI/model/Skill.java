@@ -1,24 +1,24 @@
 package br.com.TecHelpAPI.model;
 
-
 import jakarta.persistence.*;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
-
 
 @Entity
 @Table(name = "Skill")
 public class Skill implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "idSkill", nullable = false)
+    @Column(nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idSkill;
 
-    @Column(name = "nameSkill", nullable = false, length = 50)
+    @Column(nullable = false, length = 50)
     private String nameSkill;
 
     public Skill(){ }

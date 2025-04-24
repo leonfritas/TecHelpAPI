@@ -14,12 +14,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
-
 @Service
 public class UserServices {
 
     private final AtomicLong counter = new AtomicLong();
-    private Logger logger = LoggerFactory.getLogger(UserServices.class.getName());
+    private final Logger logger = LoggerFactory.getLogger(UserServices.class.getName());
 
     @Autowired
     UserRepository repository;

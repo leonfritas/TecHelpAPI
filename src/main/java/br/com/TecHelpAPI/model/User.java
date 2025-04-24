@@ -1,12 +1,9 @@
 package br.com.TecHelpAPI.model;
 
-
 import jakarta.persistence.*;
-
 
 import java.io.Serializable;
 import java.util.Objects;
-
 
 @Entity
 @Table(name = "Users")
