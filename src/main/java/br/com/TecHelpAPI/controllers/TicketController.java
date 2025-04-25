@@ -23,6 +23,8 @@ public class TicketController {
 
     @PostMapping
     public List<TicketDTO> getTicketData(@RequestBody TicketDTO request) {
+
+        System.out.println("🔍 Data recebida no Controller: " + request.getDateTicket());
         return service.getTicketData(request.getIdTicket(), request.getDateTicket(), request.getStatus());
     }
 }

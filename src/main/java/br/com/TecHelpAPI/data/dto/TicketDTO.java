@@ -1,14 +1,16 @@
 package br.com.TecHelpAPI.data.dto;
 
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+//import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
-@JsonPropertyOrder({"idTicket", "nameTicket", "dateTicket", "idUser", "description",
-                    "idCategory", "status", "nameUser", "nameCategory"})
+//@JsonPropertyOrder({"idTicket", "nameTicket", "dateTicket", "idUser", "description",
+//                    "idCategory", "status", "nameUser", "nameCategory"})
 public class TicketDTO implements Serializable {
 
     @Serial
@@ -16,7 +18,8 @@ public class TicketDTO implements Serializable {
 
     private Integer idTicket;
     private String nameTicket;
-    private Date dateTicket;
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    private LocalDate dateTicket;
     private Integer idUser;
     private String description;
     private Integer idCategory;
@@ -42,11 +45,11 @@ public class TicketDTO implements Serializable {
         this.nameTicket = nameTicket;
     }
 
-    public Date getDateTicket() {
+    public LocalDate  getDateTicket() {
         return dateTicket;
     }
 
-    public void setDateTicket(Date dateTicket) {
+    public void setDateTicket(LocalDate dateTicket) {
         this.dateTicket = dateTicket;
     }
 

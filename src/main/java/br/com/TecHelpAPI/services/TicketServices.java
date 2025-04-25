@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -26,7 +26,7 @@ public class TicketServices {
     }
 
     @Transactional(readOnly = true)
-    public List<TicketDTO> getTicketData(Integer idTicket, Date dateTicket, String status) {
+    public List<TicketDTO> getTicketData(Integer idTicket, LocalDate dateTicket, String status) {
 
         logger.info("Iniciando a consulta de tickets - idTicket: {}, dateTicket: {}, status: {}", idTicket, dateTicket, status);
 

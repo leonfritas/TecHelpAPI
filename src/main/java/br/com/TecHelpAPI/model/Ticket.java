@@ -2,7 +2,7 @@ package br.com.TecHelpAPI.model;
 
 import jakarta.persistence.*;
 
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -11,7 +11,7 @@ import java.util.Objects;
         procedureName = "sp_Ticket_Select",
         parameters = {
                 @StoredProcedureParameter(name = "idTicket", mode = ParameterMode.IN, type = Integer.class),
-                @StoredProcedureParameter(name = "dateTicket", mode = ParameterMode.IN, type = Date.class),
+                @StoredProcedureParameter(name = "dateTicket", mode = ParameterMode.IN, type = LocalDate.class),
                 @StoredProcedureParameter(name = "status", mode = ParameterMode.IN, type = String.class),
 
         },
@@ -27,7 +27,7 @@ public class Ticket {
     private String nameTicket;
 
     @Column
-    private Date dateTicket;
+    private LocalDate dateTicket;
 
     @Column
     private Integer idUser;
@@ -65,11 +65,11 @@ public class Ticket {
         this.nameTicket = nameTicket;
     }
 
-    public Date getDateTicket() {
+    public LocalDate getDateTicket() {
         return dateTicket;
     }
 
-    public void setDateTicket(Date dateTicket) {
+    public void setDateTicket(LocalDate dateTicket) {
         this.dateTicket = dateTicket;
     }
 

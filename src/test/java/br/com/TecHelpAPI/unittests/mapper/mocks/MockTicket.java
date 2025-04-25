@@ -3,7 +3,7 @@ package br.com.TecHelpAPI.unittests.mapper.mocks;
 import br.com.TecHelpAPI.data.dto.TicketDTO;
 import br.com.TecHelpAPI.model.Ticket;
 
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +37,7 @@ public class MockTicket {
         Ticket ticket = new Ticket();
         ticket.setIdTicket(number);
         ticket.setNameTicket("Ticket Name Test" + number);
-        ticket.setDateTicket(Date.valueOf("Ticket Date Test" + number));
+        ticket.setDateTicket(LocalDate.parse("Ticket Date Test" + number));
         ticket.setIdUser(number);
         ticket.setDescription("Ticket Description Test" + number);
         ticket.setIdCategory(number);
@@ -51,7 +51,7 @@ public class MockTicket {
         TicketDTO ticket = new TicketDTO();
         ticket.setIdTicket(number);
         ticket.setNameTicket("Ticket Name Test" + number);
-        ticket.setDateTicket(Date.valueOf("Ticket Date Test" + number));
+        ticket.setDateTicket(LocalDate.parse("Ticket Date Test" + number));
         ticket.setIdUser(number);
         ticket.setDescription("Ticket Description Test" + number);
         ticket.setIdCategory(number);
