@@ -1,6 +1,7 @@
 package br.com.TecHelpAPI.controllers;
 
 import br.com.TecHelpAPI.data.dto.UserDTO;
+import br.com.TecHelpAPI.data.dto.LoginDTO;  // Importa o novo DTO
 import br.com.TecHelpAPI.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -52,14 +53,14 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
 
-    // Novo endpoint para login
+    // Novo endpoint para login usando LoginDTO
     @PostMapping(
             value = "/login",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<String> login(@RequestBody UserDTO userDTO) {
-        boolean authenticated = service.authenticate(userDTO.getEmail(), userDTO.getPassword());
+    public ResponseEntity<String> login(@RequestBody LoginDTO loginDTO) {
+        boolean authenticated = service.authenticate(loginDTO.getEmail(), loginDTO.getPassword());
         if (authenticated) {
             return ResponseEntity.ok("Login successful!");
         } else {
