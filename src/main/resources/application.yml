@@ -1,7 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    url: jdbc:sqlserver://localhost:1433;databaseName=TecHelp;encrypt=true;trustServerCertificate=true
+    url: jdbc:sqlserver://localhost:1433;databaseName=techelp;encrypt=true;trustServerCertificate=true
+    username: SA
+    password: 30112004As
   jpa:
     hibernate:
       naming:
