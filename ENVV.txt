@@ -1,0 +1,24 @@
+Passos seguintes:
+
+Defina as variáveis de ambiente:
+
+No terminal (Linux/Mac):
+export DB_USERNAME=SEUNOME
+export DB_PASSWORD=SUASENHA
+
+No terminal (Windows CMD):
+set DB_USERNAME=SEUNOME
+set DB_PASSWORD=SUASENHA
+
+No PowerShell:
+powershell
+$env:DB_USERNAME="SEUNOME"
+$env:DB_PASSWORD="SUASENHA"
+
+Ou adicione no .env (se estiver usando Spring Boot com suporte a dotenv):
+Se você quiser usar um arquivo .env, pode instalar uma biblioteca como dotenv-java, ou configurar manualmente.
+
+Exemplo de .env:
+
+DB_USERNAME=SA
+DB_PASSWORD=30112004As
