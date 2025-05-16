@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    url: jdbc:sqlserver://localhost:1433;databaseName=TecHelp;encrypt=true;trustServerCertificate=true
+    url: jdbc:sqlserver://localhost:1434;databaseName=TecHelp;encrypt=true;trustServerCertificate=true
     username: sa
     password: Xande8160
   jpa:
@@ -12,8 +12,13 @@ spring:
   jackson:
     time-zone: America/Sao_Paulo
     date-format: dd/MM/yyyy
-    
 
-server: z:::º
+server:
+  port: 8080
+  servlet:
+    context-path: /techelp/api
 
-
+logging:
+  level:
+    br.com.TecHelpAPI: INFO
+    root: WARN
