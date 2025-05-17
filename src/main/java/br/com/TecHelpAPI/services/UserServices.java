@@ -59,13 +59,13 @@ public class UserServices {
         repository.delete(entity);
     }
 
-    public boolean authenticate(String email, String password) {
-        logger.info("Authenticating user with email: {}", email);
+    public boolean authenticate(String nameUser, String password) {
+        logger.info("Authenticating user with username: {}", nameUser);
 
-        var optionalUser = repository.findByEmail(email);
+        var optionalUser = repository.findByNameUser(nameUser);
 
         if (optionalUser.isEmpty()) {
-            logger.warn("User not found for email: {}", email);
+            logger.warn("User not found for username: {}", nameUser);
             return false;
         }
 
@@ -75,9 +75,8 @@ public class UserServices {
             logger.info("User authenticated successfully");
             return true;
         } else {
-            logger.warn("Invalid password for email: {}", email);
+            logger.warn("Invalid password for username: {}", nameUser);
             return false;
         }
     }
-
 }

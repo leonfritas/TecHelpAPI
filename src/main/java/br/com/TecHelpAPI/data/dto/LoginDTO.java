@@ -3,18 +3,17 @@ package br.com.TecHelpAPI.data.dto;
 import java.io.Serializable;
 
 public class LoginDTO implements Serializable {
-
-    private String email;
+    private String nameUser;
     private String password;
 
     public LoginDTO() { }
 
-    public String getEmail() {
-        return email;
+    public String getNameUser() {
+        return nameUser;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setNameUser(String nameUser) {
+        this.nameUser = nameUser;
     }
 
     public String getPassword() {
